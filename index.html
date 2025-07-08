@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ARBY-HEX SHOP</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', monospace;
+      background: linear-gradient(135deg, #000000, #0a1f40);
+      color: #00ffea;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-bottom: 2px dashed #00ffea44;
+    }
+
+    header h1 {
+      font-size: 3.5em;
+      color: #00fff7;
+      text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #cccccc;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 30px;
+      padding: 40px;
+    }
+
+    .product-card {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px dashed #00ffea66;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 10px #00ffea33;
+      transition: transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .product-card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      filter: grayscale(40%) contrast(110%);
+    }
+
+    .product-card h2 {
+      color: #00ffea;
+      font-size: 1.3em;
+      margin: 0;
+    }
+
+    .price {
+      color: #ff00ff;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    .desc {
+      color: #cccccc;
+      font-size: 0.95em;
+    }
+    
+    .product-card video {
+       width: 100%;
+       border-radius: 10px;
+       margin-bottom: 15px;
+       filter: grayscale(20%) contrast(110%);
+       box-shadow: 0 0 8px #00ffea33;
+}
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #00000077;
+      border-top: 1px dashed #00ffea33;
+    }
+
+    .whatsapp {
+      display: inline-block;
+      margin-bottom: 15px;
+      padding: 10px 20px;
+      background-color: #25D366;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 25px;
+      box-shadow: 0 0 10px #25D366;
+      transition: background-color 0.3s;
+    }
+
+    .whatsapp:hover {
+      background-color: #1dbf5f;
+    }
+
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+      }
+      20%, 22%, 24%, 55% {
+        opacity: 0;
+      }
+    }
+
+    .anonymous-mask {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      width: 80px;
+      opacity: 0.07;
+      animation: flicker 3s infinite;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ARBY-HEX SHOP</h1>
+    <p>Digital Produk Tools Hacking White Hat - Black Hat</p>
+  </header>
+
+  <section class="products">
+    <!-- Repeat 10 product cards -->
+    <div class="product-card">
+      <img src="https://files.catbox.moe/iw0azi.png">
+      <h2>DAEMONIUM BASIC VIP</h2>
+      <p class="price">Rp 5.000</p>
+      <p class="desc">TERSEDIA 15 FITUR</p>
+    </div>
+    <div class="product-card">
+      <img src="https://files.catbox.moe/qd837y.png">
+      <h2>DAEMONIUM INFERNO VIP</h2>
+      <p class="price">Rp 10.000</p>
+      <p class="desc">TERSEDIA 20 FITUR</p>
+    </div>
+    <div class="product-card">
+      <img src="https://files.catbox.moe/fcx31v.png">
+      <h2>SECRET DAEMONIUM VIP</h2>
+      <p class="price">Rp 15.000</p>
+      <p class="desc">TERSEDIA 25 FITUR</p>
+    </div>
+    <div class="product-card">
+      <video autoplay muted loop playsinline>
+      <source src="https://files.catbox.moe/yj8x1o.mp4" type ="video/mp4">
+        Browser tidak mendukung video.
+      </video>
+      <h2>Coming Soon</h2>
+      <p class="price">Rp 100.000.000</p>
+      <p class="desc">UNKNOWN</p>
+    </div>
+    <div class="product-card">
+      <video autoplay muted loop playsinline>
+      <source src="https://files.catbox.moe/yj8x1o.mp4" type ="video/mp4">
+        Browser tidak mendukung video.
+      </video>
+      <h2>Coming Soon</h2>
+      <p class="price">Rp 100.000.000</p>
+      <p class="desc">UNKNOWN</p>
+    </div>
+    <div class="product-card">
+      <video autoplay muted loop playsinline>
+      <source src="https://files.catbox.moe/yj8x1o.mp4" type ="video/mp4">
+        Browser tidak mendukung video.
+      </video>
+      <h2>Coming Soon</h2>
+      <p class="price">Rp 100.000.000</p>
+      <p class="desc">UNKNOWN</p>
+    </div>
+    <div class="product-card">
+      <video autoplay muted loop playsinline>
+      <source src="https://files.catbox.moe/yj8x1o.mp4" type ="video/mp4">
+        Browser tidak mendukung video.
+      </video>
+      <h2>Coming Soon</h2>
+      <p class="price">Rp 100.000.000</p>
+      <p class="desc">UNKNOWN</p>
+    </div>
+    <div class="product-card">
+      <video autoplay muted loop playsinline>
+      <source src="https://files.catbox.moe/yj8x1o.mp4" type ="video/mp4">
+        Browser tidak mendukung video.
+      </video>
+      <h2>Coming Soon</h2>
+      <p class="price">Rp 100.000.000</p>
+      <p class="desc">UNKNOWN</p>
+    </div>
+    <div class="product-card">
+      <video autoplay muted loop playsinline>
+      <source src="https://files.catbox.moe/yj8x1o.mp4" type ="video/mp4">
+        Browser tidak mendukung video.
+      </video>
+      <h2>Coming Soon</h2>
+      <p class="price">Rp 100.000.000</p>
+      <p class="desc">UNKNOWN</p>
+    </div>
+    <div class="product-card">
+      <video autoplay muted loop playsinline>
+      <source src="https://files.catbox.moe/yj8x1o.mp4" type ="video/mp4">
+        Browser tidak mendukung video.
+      </video>
+      <h2>Coming Soon</h2>
+      <p class="price">Rp 100.000.000</p>
+      <p class="desc">UNKNOWN</p>
+    </div>
+  </section>
+
+  <footer>
+    <a class="whatsapp" href="https://wa.me/6281234567890" target="_blank">
+      💬 Hubungi via WhatsApp
+    </a>
+    <p>© 2025 Arby-Hex</p>
+  </footer>
+
+  <script>
+    // Animasi masuk saat scroll
+    const cards = document.querySelectorAll('.product-card');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    cards.forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+
+</body>
+</html>
