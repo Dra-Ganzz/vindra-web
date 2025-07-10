@@ -14,7 +14,6 @@
       overflow-x: hidden;
     }
 
-    /* ✨ Efek fade masuk */
     .fade-in {
       opacity: 0;
       transform: scale(0.95);
@@ -71,8 +70,11 @@
 
     .product-card img {
       width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 15px auto;
       border-radius: 10px;
-      margin-bottom: 15px;
       filter: grayscale(40%) contrast(110%);
     }
 
@@ -91,14 +93,6 @@
     .desc {
       color: #cccccc;
       font-size: 0.95em;
-    }
-
-    .product-card video {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      filter: grayscale(20%) contrast(110%);
-      box-shadow: 0 0 8px #00ffea33;
     }
 
     footer {
@@ -124,34 +118,21 @@
     .whatsapp:hover {
       background-color: #1dbf5f;
     }
-
-    @keyframes flicker {
-      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-        opacity: 1;
-      }
-      20%, 22%, 24%, 55% {
-        opacity: 0;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <!-- ✨ Intro Atas -->
   <section id="intro" style="text-align:center; padding: 100px 20px;">
-    <h1 style="font-size: 3em; color: #00fff7; text-shadow: 0 0 10px #00fff7;" class="fade-in">
+    <h1 class="fade-in" style="font-size: 3em; color: #00fff7; text-shadow: 0 0 10px #00fff7;">
       Selamat Datang di Vindra Ganzz Web
     </h1>
-    <p style="color: #ccc; margin-top: 10px;" class="fade-in">
-      Script premium, tools brutal, tampilan sangar
-    </p>
+    <p class="fade-in" style="color: #ccc;">Script premium, tools brutal, tampilan sangar</p>
     <button onclick="document.getElementById('produk').scrollIntoView({behavior: 'smooth'})"
       style="margin-top: 30px; padding: 12px 28px; font-size: 1em; background: #00fff7; border: none; border-radius: 25px; box-shadow: 0 0 10px #00fff7; cursor: pointer; font-weight: bold;">
       🚀 Jelajahi Sekarang
     </button>
   </section>
 
-  <!-- 🔽 Produk -->
   <section class="products fade-in" id="produk">
     <div class="product-card">
       <img src="https://files.catbox.moe/2fseci.png" />
@@ -161,29 +142,21 @@
     </div>
   </section>
 
-  <!-- 🖼️ Galeri -->
-  <section class="fade-in" style="overflow: auto; max-height: 600px; padding: 40px; white-space: nowrap; display: flex; gap: 20px;">
-    <div class="product-card show" style="width: 300px;">
-      <img src="https://files.catbox.moe/2fseci.png" />
-      <h2>Premium Call Tools</h2>
-      <p class="price">Rp 50.000 / bulan</p>
-      <p class="desc">Spam call/sms/email otomatis dengan tools by Vindra Ganzz.</p>
-    </div>
-    <div class="product-card show" style="width: 300px;">
-      <img src="Screenshot_20250710-093958.png" />
-      <h2>Preview Tampilan Menu</h2>
-      <p class="price">User Premium Aktif</p>
-      <p class="desc">Tampilan utama Premium Tools dengan ID dan fitur menu lengkap.</p>
-    </div>
+  <section class="fade-in" style="overflow-x: auto; white-space: nowrap; padding: 40px; display: flex; gap: 20px;">
     <div class="product-card show" style="width: 300px;">
       <img src="Screenshot_20250710-094719.png" />
       <h2>Harga & Paket Spam</h2>
       <p class="price">Rp 5.000 - 500.000</p>
-      <p class="desc">List</p>
+      <p class="desc">List harga berdasarkan lama aktif (2 hari - permanent).</p>
+    </div>
+    <div class="product-card show" style="width: 300px;">
+      <img src="Screenshot_20250710-100905.png" />
+      <h2>Premium Menu Final</h2>
+      <p class="price">Update tampilan premium</p>
+      <p class="desc">Tampilan terbaru tools spam premium yang bisa diakses langsung melalui menu.</p>
     </div>
   </section>
 
-  <!-- 🌐 Sosial Media -->
   <section class="fade-in" style="overflow-x: auto; white-space: nowrap; padding: 30px 20px; text-align: center;">
     <div style="display: inline-block; margin: 0 15px;">
       <a href="https://wa.me/18737000033" target="_blank" title="WhatsApp">
@@ -212,15 +185,13 @@
     </div>
   </section>
 
-  <!-- 🟢 Footer -->
   <footer>
     <a class="whatsapp" href="https://wa.me/18737000033?text=Assalamualaikum+Bang+Dra🙏" target="_blank">
-      💬 Hubungi via WhatsApp
+      🛋️ Hubungi via WhatsApp
     </a>
     <p>© 2025 Vindra Ganzz</p>
   </footer>
 
-  <!-- JS Scroll Observer -->
   <script>
     const cards = document.querySelectorAll('.product-card');
     const observer = new IntersectionObserver(entries => {
