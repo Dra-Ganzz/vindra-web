@@ -84,26 +84,11 @@
       100% { transform: translateX(-100%); }
     }
 
-    .fade-in {
-      opacity: 0;
-      transform: scale(0.95);
-      animation: fadeInUp 1.2s ease-out forwards;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
     header {
       text-align: center;
       padding: 60px 20px;
       background: rgba(0, 0, 0, 0.5);
       border-bottom: 2px dashed #00ffea44;
-      position: relative;
-      z-index: 1;
     }
 
     header h1 {
@@ -117,15 +102,21 @@
       color: #cccccc;
     }
 
+    .section-title {
+      text-align: center;
+      font-size: 1em;
+      margin: 40px 0 10px;
+      color: #00ffee;
+      text-shadow: 0 0 5px #00ffeeaa;
+    }
+
     .product-section {
       overflow-x: auto;
       white-space: nowrap;
-      padding: 30px 20px;
+      padding: 10px 20px 40px;
       display: flex;
       gap: 20px;
       scroll-snap-type: x mandatory;
-      position: relative;
-      z-index: 1;
     }
 
     .product-card {
@@ -139,6 +130,11 @@
       text-align: center;
       scroll-snap-align: center;
       transition: transform 0.3s ease;
+    }
+
+    .product-card a {
+      text-decoration: none;
+      color: inherit;
     }
 
     .product-card img {
@@ -209,58 +205,70 @@
     <div class="marquee-text">✨ Selamat Datang di Website Vindra ✨ Selamat Datang di Website Vindra ✨</div>
   </div>
 
-  <section style="text-align:center; padding:100px 20px;">
-    <h1 class="fade-in" style="font-size: 3em; color: #00fff7; text-shadow: 0 0 10px #00fff7;">
-      Selamat Datang di Vindra Ganzz Web
-    </h1>
-    <p class="fade-in" style="color: #ccc;">Script premium, tools brutal, tampilan sangar:v</p>
+  <header>
+    <h1>Selamat Datang di Vindra Ganzz Web</h1>
+    <p>Script premium, tools brutal, tampilan sangar:v</p>
     <button onclick="startMusic(); document.getElementById('produk1').scrollIntoView({behavior:'smooth'})"
       style="margin-top:30px;padding:12px 28px;font-size:1em;background:#00fff7;border:none;border-radius:25px;box-shadow:0 0 10px #00fff7;cursor:pointer;font-weight:bold;">
       🚀 Jelajahi Sekarang
     </button>
-  </section>
+  </header>
 
   <!-- 🔽 Produk List 1 -->
+  <div class="section-title">Produk 1</div>
   <section id="produk1" class="product-section">
     <div class="product-card">
-      <img src="https://files.catbox.moe/9absu9.png" />
-      <h2>Premium Call Tools</h2>
-      <p class="price">Chat untuk harga</p>
-      <p class="desc">Spam call/sms/email</p>
+      <a href="https://wa.me/6281234567890" target="_blank">
+        <img src="https://files.catbox.moe/9absu9.png" />
+        <h2>Premium Call Tools</h2>
+        <p class="price">Chat untuk harga</p>
+        <p class="desc">Spam call/sms/email</p>
+      </a>
     </div>
     <div class="product-card">
-      <img src="https://files.catbox.moe/9absu9.png" />
-      <h2>Spam WhatsApp</h2>
-      <p class="price">Gratis</p>
-      <p class="desc">Script WA Brutal</p>
+      <a href="https://wa.me/6281234567890" target="_blank">
+        <img src="https://files.catbox.moe/9absu9.png" />
+        <h2>Spam WhatsApp</h2>
+        <p class="price">Gratis</p>
+        <p class="desc">Script WA Brutal</p>
+      </a>
     </div>
     <div class="product-card">
-      <img src="https://files.catbox.moe/9absu9.png" />
-      <h2>Bot YouTube</h2>
-      <p class="price">Hubungi Admin</p>
-      <p class="desc">Auto Subscribe + View</p>
+      <a href="https://youtube.com/@vindraganzz" target="_blank">
+        <img src="https://files.catbox.moe/9absu9.png" />
+        <h2>Bot YouTube</h2>
+        <p class="price">Auto View</p>
+        <p class="desc">Subscribe otomatis</p>
+      </a>
     </div>
   </section>
 
   <!-- 🔽 Produk List 2 -->
+  <div class="section-title">Produk 2</div>
   <section class="product-section">
     <div class="product-card">
-      <img src="https://files.catbox.moe/9absu9.png" />
-      <h2>Spam Tools Pro</h2>
-      <p class="price">Test Gratis</p>
-      <p class="desc">Call & SMS & WA Pro</p>
+      <a href="https://wa.me/6281234567890" target="_blank">
+        <img src="https://files.catbox.moe/9absu9.png" />
+        <h2>Spam Tools Pro</h2>
+        <p class="price">Free Test</p>
+        <p class="desc">Full fitur call & wa</p>
+      </a>
     </div>
     <div class="product-card">
-      <img src="https://files.catbox.moe/9absu9.png" />
-      <h2>Bypass OTP</h2>
-      <p class="price">Free Trial</p>
-      <p class="desc">Cocok untuk testing sistem</p>
+      <a href="https://wa.me/6281234567890" target="_blank">
+        <img src="https://files.catbox.moe/9absu9.png" />
+        <h2>Bypass OTP</h2>
+        <p class="price">Free Trial</p>
+        <p class="desc">Cocok buat testing sistem</p>
+      </a>
     </div>
     <div class="product-card">
-      <img src="https://files.catbox.moe/9absu9.png" />
-      <h2>V2 Brutal Menu</h2>
-      <p class="price">Hubungi untuk akses</p>
-      <p class="desc">Script baru efek brutal</p>
+      <a href="https://wa.me/6281234567890" target="_blank">
+        <img src="https://files.catbox.moe/9absu9.png" />
+        <h2>V2 Brutal Menu</h2>
+        <p class="price">Special Request</p>
+        <p class="desc">Script efek brutal menu</p>
+      </a>
     </div>
   </section>
 
