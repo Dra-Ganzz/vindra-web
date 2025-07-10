@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vindra Ganzz</title>
   <style>
     body {
@@ -14,7 +14,7 @@
       overflow-x: hidden;
     }
 
-    /* ✨ Efek Awal Masuk */
+    /* ✨ Efek fade masuk */
     .fade-in {
       opacity: 0;
       transform: scale(0.95);
@@ -133,84 +133,86 @@
         opacity: 0;
       }
     }
-
-    .anonymous-mask {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      width: 80px;
-      opacity: 0.07;
-      animation: flicker 3s infinite;
-    }
   </style>
 </head>
 <body>
 
-  <header class="fade-in">
-    <h1>Vindra Ganzz web</h1>
-    <p>Script Premium</p>
-  </header>
+  <!-- ✨ Intro Atas -->
+  <section id="intro" style="text-align:center; padding: 100px 20px;">
+    <h1 style="font-size: 3em; color: #00fff7; text-shadow: 0 0 10px #00fff7;" class="fade-in">
+      Selamat Datang di Vindra Ganzz Web
+    </h1>
+    <p style="color: #ccc; margin-top: 10px;" class="fade-in">
+      Script premium, tools brutal, tampilan sangar
+    </p>
+    <button onclick="document.getElementById('produk').scrollIntoView({behavior: 'smooth'})"
+      style="margin-top: 30px; padding: 12px 28px; font-size: 1em; background: #00fff7; border: none; border-radius: 25px; box-shadow: 0 0 10px #00fff7; cursor: pointer; font-weight: bold;">
+      🚀 Jelajahi Sekarang
+    </button>
+  </section>
 
-  <section class="products fade-in">
+  <!-- 🔽 Produk -->
+  <section class="products fade-in" id="produk">
     <div class="product-card">
-      <img src="https://files.catbox.moe/2fseci.png">
+      <img src="https://files.catbox.moe/2fseci.png" />
       <h2>Menu Premium-Call</h2>
       <p class="price">https://github.com/Dra-Ganzz/Premium-Call</p>
       <p class="desc">Spam Wa sms,call,email</p>
     </div>
   </section>
 
-  <!-- Galeri Gambar -->
+  <!-- 🖼️ Galeri -->
   <section class="fade-in" style="overflow: auto; max-height: 600px; padding: 40px; white-space: nowrap; display: flex; gap: 20px;">
     <div class="product-card show" style="width: 300px;">
-      <img src="https://files.catbox.moe/2fseci.png" width="100%" height="auto" style="object-fit: contain;">
+      <img src="https://files.catbox.moe/2fseci.png" />
       <h2>Premium Call Tools</h2>
       <p class="price">Rp 50.000 / bulan</p>
       <p class="desc">Spam call/sms/email otomatis dengan tools by Vindra Ganzz.</p>
     </div>
     <div class="product-card show" style="width: 300px;">
-      <img src="Screenshot_20250710-093958.png" width="100%" height="auto" style="object-fit: contain;">
+      <img src="Screenshot_20250710-093958.png" />
       <h2>Preview Tampilan Menu</h2>
       <p class="price">User Premium Aktif</p>
       <p class="desc">Tampilan utama Premium Tools dengan ID dan fitur menu lengkap.</p>
     </div>
     <div class="product-card show" style="width: 300px;">
-      <img src="Screenshot_20250710-094719.png" width="100%" height="auto" style="object-fit: contain;">
+      <img src="Screenshot_20250710-094719.png" />
       <h2>Harga & Paket Spam</h2>
       <p class="price">Rp 5.000 - 500.000</p>
       <p class="desc">List harga berdasarkan lama aktif (2 hari - permanent).</p>
     </div>
   </section>
 
-  <!-- Sosial Media -->
+  <!-- 🌐 Sosial Media -->
   <section class="fade-in" style="overflow-x: auto; white-space: nowrap; padding: 30px 20px; text-align: center;">
     <div style="display: inline-block; margin: 0 15px;">
-      <a href="https://wa.me/18737000033?text=Assalamualaikum+Bang+Dra🙏" target="_blank" title="WhatsApp">
-        <img src="https://cdn-icons-png.flaticon.com/128/733/733585.png" width="50" style="filter: drop-shadow(0 0 5px #25D366);">
+      <a href="https://wa.me/18737000033" target="_blank" title="WhatsApp">
+        <img src="https://cdn-icons-png.flaticon.com/128/733/733585.png" width="50" style="filter: drop-shadow(0 0 5px #25D366);" />
       </a>
     </div>
     <div style="display: inline-block; margin: 0 15px;">
       <a href="https://youtube.com/@vindraganzz" target="_blank" title="YouTube">
-        <img src="https://cdn-icons-png.flaticon.com/128/1384/1384060.png" width="50" style="filter: drop-shadow(0 0 5px red);">
+        <img src="https://cdn-icons-png.flaticon.com/128/1384/1384060.png" width="50" style="filter: drop-shadow(0 0 5px red);" />
       </a>
     </div>
     <div style="display: inline-block; margin: 0 15px;">
-      <a href="https://www.tiktok.com/@vindraganzz" target="_blank" title="TikTok">
-        <img src="https://cdn-icons-png.flaticon.com/128/3046/3046122.png" width="50" style="filter: drop-shadow(0 0 5px white);">
+      <a href="https://tiktok.com/@vindraganzz" target="_blank" title="TikTok">
+        <img src="https://cdn-icons-png.flaticon.com/128/3046/3046122.png" width="50" style="filter: drop-shadow(0 0 5px white);" />
       </a>
     </div>
     <div style="display: inline-block; margin: 0 15px;">
       <a href="https://instagram.com/vindraganzz" target="_blank" title="Instagram">
-        <img src="https://cdn-icons-png.flaticon.com/128/1384/1384063.png" width="50" style="filter: drop-shadow(0 0 5px #d62976);">
+        <img src="https://cdn-icons-png.flaticon.com/128/1384/1384063.png" width="50" style="filter: drop-shadow(0 0 5px #d62976);" />
       </a>
     </div>
     <div style="display: inline-block; margin: 0 15px;">
       <a href="https://facebook.com/vindraganzz" target="_blank" title="Facebook">
-        <img src="https://cdn-icons-png.flaticon.com/128/1384/1384053.png" width="50" style="filter: drop-shadow(0 0 5px #3b5998);">
+        <img src="https://cdn-icons-png.flaticon.com/128/1384/1384053.png" width="50" style="filter: drop-shadow(0 0 5px #3b5998);" />
       </a>
     </div>
   </section>
 
+  <!-- 🟢 Footer -->
   <footer>
     <a class="whatsapp" href="https://wa.me/18737000033?text=Assalamualaikum+Bang+Dra🙏" target="_blank">
       💬 Hubungi via WhatsApp
@@ -218,23 +220,17 @@
     <p>© 2025 Vindra Ganzz</p>
   </footer>
 
+  <!-- JS Scroll Observer -->
   <script>
-    // Animasi masuk saat scroll
     const cards = document.querySelectorAll('.product-card');
-
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('show');
         }
       });
-    }, {
-      threshold: 0.2
-    });
-
-    cards.forEach(card => {
-      observer.observe(card);
-    });
+    }, { threshold: 0.2 });
+    cards.forEach(card => observer.observe(card));
   </script>
 
 </body>
