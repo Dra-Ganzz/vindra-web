@@ -13,6 +13,7 @@
       scroll-behavior: smooth;
       overflow-x: hidden;
     }
+
     .music-button {
       position: fixed;
       top: 15px;
@@ -25,10 +26,12 @@
       display: none;
       cursor: pointer;
     }
+
     .music-button img {
       width: 30px;
       height: 30px;
     }
+
     .bg-lights {
       position: fixed;
       top: 0; left: 0;
@@ -37,6 +40,7 @@
       overflow: hidden;
       z-index: 0;
     }
+
     .light {
       position: absolute;
       width: 20px; height: 20px;
@@ -45,11 +49,13 @@
       box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
       animation: moveLight 10s linear infinite;
     }
+
     @keyframes moveLight {
       0% { transform: translateY(0) translateX(0); opacity: 0.6; }
       50% { transform: translateY(100vh) translateX(30vw); opacity: 0.1; }
       100% { transform: translateY(0) translateX(-30vw); opacity: 0.6; }
     }
+
     .marquee-container {
       width: 100%;
       overflow: hidden;
@@ -59,6 +65,7 @@
       position: relative;
       z-index: 1;
     }
+
     .marquee-text {
       display: inline-block;
       white-space: nowrap;
@@ -71,21 +78,25 @@
       -webkit-background-clip: text;
       text-shadow: 0 0 10px #00ffe1, 0 0 20px #ff00f7;
     }
+
     @keyframes scroll-left {
       0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
+
     .fade-in {
       opacity: 0;
       transform: scale(0.95);
       animation: fadeInUp 1.2s ease-out forwards;
     }
+
     @keyframes fadeInUp {
       to {
         opacity: 1;
         transform: scale(1);
       }
     }
+
     header {
       text-align: center;
       padding: 60px 20px;
@@ -94,65 +105,73 @@
       position: relative;
       z-index: 1;
     }
+
     header h1 {
       font-size: 3.5em;
       color: #00fff7;
       text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7;
     }
-    header p {
-      font-size: 1.2em;
-      color: #cccccc;
+
+    .section-title {
+      text-align: center;
+      font-size: 2em;
+      margin: 30px auto 10px;
+      color: #00ffee;
+      text-shadow: 0 0 8px #00ffee;
     }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 30px;
-      padding: 40px;
-      position: relative;
-      z-index: 1;
+
+    .product-scroll {
+      overflow-x: auto;
+      white-space: nowrap;
+      display: flex;
+      gap: 20px;
+      padding: 20px 40px;
+      scroll-behavior: smooth;
     }
+
     .product-card {
+      display: inline-block;
       background: rgba(0, 0, 0, 0.4);
       border: 1px dashed #00ffea66;
       border-radius: 12px;
       padding: 20px;
       box-shadow: 0 0 10px #00ffea33;
-      transition: transform 0.3s ease;
-      opacity: 0;
-      transform: translateY(30px);
+      width: 270px;
+      flex: 0 0 auto;
+      text-align: center;
     }
-    .product-card.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+
     .product-card img {
       width: 100%;
       border-radius: 10px;
       margin-bottom: 15px;
       filter: grayscale(40%) contrast(110%);
     }
+
     .product-card h2 {
       color: #00ffea;
-      font-size: 1.3em;
-      margin: 0;
+      font-size: 1.2em;
+      margin-bottom: 10px;
     }
+
     .price {
       color: #ff00ff;
       font-weight: bold;
       margin: 5px 0;
     }
+
     .desc {
-      color: #cccccc;
+      color: #ccc;
       font-size: 0.95em;
     }
+
     footer {
       text-align: center;
       padding: 30px 20px;
       background-color: #00000077;
       border-top: 1px dashed #00ffea33;
-      position: relative;
-      z-index: 1;
     }
+
     .whatsapp {
       display: inline-block;
       margin-bottom: 15px;
@@ -163,123 +182,99 @@
       font-weight: bold;
       border-radius: 25px;
       box-shadow: 0 0 10px #25D366;
-      transition: background-color 0.3s;
-    }
-    .whatsapp:hover {
-      background-color: #1dbf5f;
     }
   </style>
 </head>
 <body>
 
-  <audio id="bgMusic" src="naruto.mp3" preload="auto" loop></audio>
+<audio id="bgMusic" src="naruto.mp3" preload="auto" loop></audio>
+<div class="music-button" id="musicBtn" onclick="startMusic()">
+  <img src="https://cdn-icons-png.flaticon.com/512/727/727269.png" alt="Play Music" />
+</div>
 
-  <div class="music-button" id="musicBtn" onclick="startMusic()">
-    <img src="https://cdn-icons-png.flaticon.com/512/727/727269.png" alt="Play Music" />
-  </div>
+<div class="bg-lights">
+  <div class="light" style="top:10%;left:20%;animation-delay:0s;"></div>
+  <div class="light" style="top:30%;left:80%;animation-delay:2s;"></div>
+  <div class="light" style="top:50%;left:40%;animation-delay:4s;"></div>
+  <div class="light" style="top:70%;left:60%;animation-delay:6s;"></div>
+  <div class="light" style="top:90%;left:10%;animation-delay:8s;"></div>
+</div>
 
-  <div class="bg-lights">
-    <div class="light" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
-    <div class="light" style="top: 30%; left: 80%; animation-delay: 2s;"></div>
-    <div class="light" style="top: 50%; left: 40%; animation-delay: 4s;"></div>
-    <div class="light" style="top: 70%; left: 60%; animation-delay: 6s;"></div>
-    <div class="light" style="top: 90%; left: 10%; animation-delay: 8s;"></div>
-  </div>
+<div class="marquee-container">
+  <div class="marquee-text">✨ Selamat Datang di Website Vindra ✨ Selamat Datang di Website Vindra ✨</div>
+</div>
 
-  <div class="marquee-container">
-    <div class="marquee-text">✨ Selamat Datang di Website Vindra ✨ Selamat Datang di Website Vindra ✨</div>
-  </div>
+<header>
+  <h1>Vindra Ganzz Web</h1>
+</header>
 
-  <section id="intro" style="text-align:center; padding: 100px 20px; position: relative; z-index: 1;">
-    <h1 style="font-size: 3em; color: #00fff7;">Selamat Datang di Vindra Ganzz Web</h1>
-    <p style="color: #ccc;">Script premium, tools brutal, tampilan sangar:v</p>
-    <button onclick="startMusic(); document.getElementById('produk').scrollIntoView({behavior: 'smooth'})"
-      style="margin-top: 30px; padding: 12px 28px; font-size: 1em; background: #00fff7; border: none; border-radius: 25px; box-shadow: 0 0 10px #00fff7; cursor: pointer; font-weight: bold;">
-      🚀 Jelajahi Sekarang
-    </button>
-  </section>
-
-  <!-- 🔽 Produk -->
-  <section id="produk" class="fade-in" style="overflow: auto; max-height: 600px; padding: 40px; white-space: nowrap; display: flex; gap: 20px; position: relative; z-index: 1;">
-    <div class="product-card show" style="width: 300px;">
-      <a href="https://wa.me/6281234567890" target="_blank"><img src="https://files.catbox.moe/9absu9.png" /></a>
-      <h2>Premium Call Tools</h2>
-      <p class="price">Harga? Chat ke wa </p>
-      <p class="desc">Spam call/sms/email</p>
-    </div>
-    <div class="product-card show" style="width: 300px;">
-      <a href="https://wa.me/6281234567890" target="_blank"><img src="https://files.catbox.moe/9absu9.png" /></a>
-      <h2>Preview Tampilan Menu</h2>
-      <p class="price">Free Yang jeng</p>
-      <p class="desc">Script Spam Wa Terbaru</p>
-    </div>
-    <div class="product-card show" style="width: 300px;">
-      <a href="https://wa.me/6281234567890" target="_blank"><img src="https://files.catbox.moe/9absu9.png" /></a>
-      <h2>YouTube Gua</h2>
-      <p class="price"></p>
-      <p class="desc">Silahkan Cek YouTube Gua</p>
-    </div>
-  </section>
-
-  <!-- 🔽 Produk Tambahan -->
-  <section class="fade-in" style="overflow: auto; max-height: 600px; padding: 40px; white-space: nowrap; display: flex; gap: 20px; position: relative; z-index: 1;">
-    <div class="product-card show" style="width: 300px; text-align: center;">
-      <h2 style="margin-bottom: 10px;">Spam Tools Pro</h2>
-      <a href="https://wa.me/6281234567890" target="_blank"><img src="https://files.catbox.moe/9absu9.png" /></a>
-      <p class="price">Chat untuk harga</p>
-      <p class="desc">Full spam fitur call, SMS & WA</p>
-    </div>
-    <div class="product-card show" style="width: 300px; text-align: center;">
-      <h2 style="margin-bottom: 10px;">Bypass OTP Tool</h2>
-      <a href="https://wa.me/6281234567890" target="_blank"><img src="https://files.catbox.moe/9absu9.png" /></a>
-      <p class="price">Gratis Test</p>
-      <p class="desc">Bypass OTP untuk testing tools</p>
-    </div>
-    <div class="product-card show" style="width: 300px; text-align: center;">
-      <h2 style="margin-bottom: 10px;">V2 Menu Brutal</h2>
-      <a href="https://wa.me/6281234567890" target="_blank"><img src="https://files.catbox.moe/9absu9.png" /></a>
-      <p class="price">Special Request</p>
-      <p class="desc">Tampilan baru & brutal effect</p>
-    </div>
-  </section>
-
-  <footer>
-    <a class="whatsapp" href="https://chat.whatsapp.com/Ewsvh5Cfru0JVT2gmAP0sb" target="_blank">
-      💬 Group WhatsApp Kami
+<!-- Produk List 1 -->
+<div class="section-title">List Produk 1</div>
+<section class="product-scroll fade-in">
+  <div class="product-card">
+    <a href="https://wa.me/6281234567890" target="_blank">
+      <img src="https://files.catbox.moe/9absu9.png" />
     </a>
-    <p>© 2025 Vindra Ganzz</p>
-  </footer>
+    <h2>Premium Call Tools</h2>
+    <p class="price">Harga? Chat ke wa</p>
+    <p class="desc">Spam call/sms/email</p>
+  </div>
+  <div class="product-card">
+    <a href="https://wa.me/6281234567890" target="_blank">
+      <img src="https://files.catbox.moe/9absu9.png" />
+    </a>
+    <h2>Preview Tampilan</h2>
+    <p class="price">Free</p>
+    <p class="desc">Script Spam Wa Terbaru</p>
+  </div>
+</section>
 
-  <script>
-    const cards = document.querySelectorAll('.product-card');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.2 });
-    cards.forEach(card => observer.observe(card));
+<!-- Produk List 2 -->
+<div class="section-title">List Produk 2</div>
+<section class="product-scroll fade-in">
+  <div class="product-card">
+    <a href="https://wa.me/6281234567890" target="_blank">
+      <img src="https://files.catbox.moe/9absu9.png" />
+    </a>
+    <h2>Spam Tools Pro</h2>
+    <p class="price">Chat untuk harga</p>
+    <p class="desc">Spam Call, SMS, Email</p>
+  </div>
+  <div class="product-card">
+    <a href="https://wa.me/6281234567890" target="_blank">
+      <img src="https://files.catbox.moe/9absu9.png" />
+    </a>
+    <h2>Bypass OTP Tool</h2>
+    <p class="price">Gratis Test</p>
+    <p class="desc">Bypass OTP Tools Brutal</p>
+  </div>
+</section>
 
-    const audio = document.getElementById("bgMusic");
-    const musicBtn = document.getElementById("musicBtn");
+<footer>
+  <a class="whatsapp" href="https://chat.whatsapp.com/Ewsvh5Cfru0JVT2gmAP0sb" target="_blank">💬 Join Group WhatsApp</a>
+  <p>© 2025 Vindra Ganzz</p>
+</footer>
 
-    function startMusic() {
-      audio.play().then(() => {
-        musicBtn.style.display = "none";
-      }).catch(() => {
-        musicBtn.style.display = "block";
-      });
-    }
+<script>
+  const audio = document.getElementById("bgMusic");
+  const musicBtn = document.getElementById("musicBtn");
 
-    window.addEventListener('load', () => {
-      audio.play().then(() => {
-        musicBtn.style.display = "none";
-      }).catch(() => {
-        musicBtn.style.display = "block";
-      });
+  function startMusic() {
+    audio.play().then(() => {
+      musicBtn.style.display = "none";
+    }).catch(() => {
+      musicBtn.style.display = "block";
     });
-  </script>
+  }
+
+  window.addEventListener('load', () => {
+    audio.play().then(() => {
+      musicBtn.style.display = "none";
+    }).catch(() => {
+      musicBtn.style.display = "block";
+    });
+  });
+</script>
 
 </body>
 </html>
