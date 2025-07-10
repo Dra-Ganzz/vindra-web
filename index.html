@@ -14,7 +14,6 @@
       overflow-x: hidden;
     }
 
-    /* Musik Icon */
     .music-button {
       position: fixed;
       top: 15px;
@@ -196,15 +195,12 @@
 </head>
 <body>
 
-  <!-- 🎵 Audio -->
   <audio id="bgMusic" src="naruto.mp3" preload="auto" loop></audio>
 
-  <!-- 🔊 Tombol Musik Manual -->
   <div class="music-button" id="musicBtn" onclick="startMusic()">
     <img src="https://cdn-icons-png.flaticon.com/512/727/727269.png" alt="Play Music" />
   </div>
 
-  <!-- 🔆 Latar Cahaya -->
   <div class="bg-lights">
     <div class="light" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
     <div class="light" style="top: 30%; left: 80%; animation-delay: 2s;"></div>
@@ -213,12 +209,10 @@
     <div class="light" style="top: 90%; left: 10%; animation-delay: 8s;"></div>
   </div>
 
-  <!-- 🔥 Marquee -->
   <div class="marquee-container">
     <div class="marquee-text">✨ Selamat Datang di Website Vindra ✨ Selamat Datang di Website Vindra✨</div>
   </div>
 
-  <!-- ✨ Intro -->
   <section id="intro" style="text-align:center; padding: 100px 20px; position: relative; z-index: 1;">
     <h1 style="font-size: 3em; color: #00fff7; text-shadow: 0 0 10px #00fff7;" class="fade-in">
       Selamat Datang di Vindra Ganzz Web
@@ -235,33 +229,42 @@
   <!-- 🔽 Produk -->
   <section id="produk" class="fade-in" style="overflow: auto; max-height: 600px; padding: 40px; white-space: nowrap; display: flex; gap: 20px; position: relative; z-index: 1;">
     <div class="product-card show" style="width: 300px;">
-      <img src="https://files.catbox.moe/9absu9.png" />
+      <a href="https://wa.me/6281234567890" target="_blank">
+        <img src="https://files.catbox.moe/9absu9.png" />
+      </a>
       <h2>Premium Call Tools</h2>
       <p class="price">Harga? Chat ke wa </p>
       <p class="desc">Spam call/sms/email</p>
     </div>
-    <!-- Tambahan Produk -->
+
     <div class="product-card show" style="width: 300px;">
-      <img src="https://files.catbox.moe/9absu9.png" />
+      <a href="https://wa.me/6281234567890" target="_blank">
+        <img src="https://files.catbox.moe/9absu9.png" />
+      </a>
       <h2>Preview Tampilan Menu</h2>
       <p class="price">Free Yang jeng</p>
       <p class="desc">Script Spam Wa Terbaru</p>
     </div>
+
     <div class="product-card show" style="width: 300px;">
-      <img src="https://files.catbox.moe/9absu9.png" />
+      <a href="https://wa.me/6281234567890" target="_blank">
+        <img src="https://files.catbox.moe/9absu9.png" />
+      </a>
       <h2>Preview Tampilan Menu</h2>
       <p class="price">Free Yang jeng</p>
       <p class="desc">Script Spam Wa Terbaru</p>
     </div>
+
     <div class="product-card show" style="width: 300px;">
-      <img src="https://files.catbox.moe/9absu9.png" />
+      <a href="https://wa.me/6281234567890" target="_blank">
+        <img src="https://files.catbox.moe/9absu9.png" />
+      </a>
       <h2>YouTube Gua</h2>
       <p class="price"></p>
       <p class="desc">Silahkan Cek YouTube Gua</p>
     </div>
   </section>
 
-  <!-- 🌐 Sosial Media -->
   <section class="fade-in" style="overflow-x: auto; white-space: nowrap; padding: 30px 20px; text-align: center; position: relative; z-index: 1;">
     <div style="display: inline-block; margin: 0 15px;">
       <a href="https://wa.me/18737000033" target="_blank" title="WhatsApp">
@@ -290,7 +293,6 @@
     </div>
   </section>
 
-  <!-- 🟢 Footer -->
   <footer>
     <a class="whatsapp" href="https://chat.whatsapp.com/Ewsvh5Cfru0JVT2gmAP0sb" target="_blank">
       💬 Group WhatsApp Kami
@@ -298,7 +300,6 @@
     <p>© 2025 Vindra Ganzz</p>
   </footer>
 
-  <!-- 🔧 Script -->
   <script>
     const cards = document.querySelectorAll('.product-card');
     const observer = new IntersectionObserver(entries => {
@@ -317,11 +318,10 @@
       audio.play().then(() => {
         musicBtn.style.display = "none";
       }).catch(() => {
-        musicBtn.style.display = "block"; // Tampilkan tombol jika gagal autoplay
+        musicBtn.style.display = "block";
       });
     }
 
-    // Tampilkan tombol musik jika autoplay gagal saat load
     window.addEventListener('load', () => {
       audio.play().then(() => {
         musicBtn.style.display = "none";
@@ -333,5 +333,3 @@
 
 </body>
 </html>
-
-<!-- izin ya mek pembuat arby recode Vindra -->
