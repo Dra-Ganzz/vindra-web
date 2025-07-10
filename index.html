@@ -5,20 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vindra Ganzz</title>
 
+  <!-- Anti Sniffing Script Aman -->
   <script>
-    // 🚫 Proteksi Anti-Sniff dan Headless
     const ua = navigator.userAgent.toLowerCase();
-    const blockedAgents = ["curl", "wget", "httpie", "python", "axios", "fetch", "node", "headless", "phantom"];
-    const isHeadless = navigator.webdriver || !navigator.plugins.length || !navigator.languages;
+    const isCLI = /(curl|wget|httpie|python|axios|fetch|headless|node)/.test(ua);
+    const isSuspicious = navigator.webdriver || !navigator.plugins.length;
 
-    for (let agent of blockedAgents) {
-      if (ua.includes(agent) || isHeadless) {
-        document.documentElement.innerHTML = `
-          <div style="padding: 100px; text-align: center; font-size: 24px; color: red; background: black;">
-            🔴 Akses Diblokir<br />Deteksi bot, terminal, atau sniffing tools
-          </div>`;
-        throw new Error("Blocked user-agent: " + agent);
-      }
+    if ((isCLI || isSuspicious) && !(ua.includes("chrome") || ua.includes("firefox") || ua.includes("safari"))) {
+      document.body.innerHTML = `
+        <div style="padding:100px; background:black; color:red; text-align:center; font-size:22px;">
+          🔴 Akses Diblokir<br>Terindikasi sniffing tools / terminal
+        </div>`;
+      throw new Error("Blokir akses tidak valid");
     }
   </script>
 
@@ -55,12 +53,8 @@
     }
 
     @keyframes scroll-left {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
     }
 
     .fade-in {
@@ -244,5 +238,6 @@
     }, { threshold: 0.2 });
     cards.forEach(card => observer.observe(card));
   </script>
+
 </body>
 </html>
