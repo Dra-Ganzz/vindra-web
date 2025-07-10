@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vindra Ganzz</title>
   <style>
-    /* Semua CSS kamu tetap sama seperti sebelumnya */
     body {
       margin: 0;
       font-family: 'Courier New', monospace;
@@ -14,6 +13,26 @@
       scroll-behavior: smooth;
       overflow-x: hidden;
     }
+
+    /* Musik Icon */
+    .music-button {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 999;
+      background: #00fff7;
+      border-radius: 50%;
+      padding: 10px;
+      box-shadow: 0 0 10px #00fff7;
+      display: none;
+      cursor: pointer;
+    }
+
+    .music-button img {
+      width: 30px;
+      height: 30px;
+    }
+
     .bg-lights {
       position: fixed;
       top: 0; left: 0;
@@ -22,6 +41,7 @@
       overflow: hidden;
       z-index: 0;
     }
+
     .light {
       position: absolute;
       width: 20px; height: 20px;
@@ -30,11 +50,13 @@
       box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
       animation: moveLight 10s linear infinite;
     }
+
     @keyframes moveLight {
       0% { transform: translateY(0) translateX(0); opacity: 0.6; }
       50% { transform: translateY(100vh) translateX(30vw); opacity: 0.1; }
       100% { transform: translateY(0) translateX(-30vw); opacity: 0.6; }
     }
+
     .marquee-container {
       width: 100%;
       overflow: hidden;
@@ -44,6 +66,7 @@
       position: relative;
       z-index: 1;
     }
+
     .marquee-text {
       display: inline-block;
       white-space: nowrap;
@@ -56,21 +79,25 @@
       -webkit-background-clip: text;
       text-shadow: 0 0 10px #00ffe1, 0 0 20px #ff00f7;
     }
+
     @keyframes scroll-left {
       0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
+
     .fade-in {
       opacity: 0;
       transform: scale(0.95);
       animation: fadeInUp 1.2s ease-out forwards;
     }
+
     @keyframes fadeInUp {
       to {
         opacity: 1;
         transform: scale(1);
       }
     }
+
     header {
       text-align: center;
       padding: 60px 20px;
@@ -79,15 +106,18 @@
       position: relative;
       z-index: 1;
     }
+
     header h1 {
       font-size: 3.5em;
       color: #00fff7;
       text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7;
     }
+
     header p {
       font-size: 1.2em;
       color: #cccccc;
     }
+
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -96,6 +126,7 @@
       position: relative;
       z-index: 1;
     }
+
     .product-card {
       background: rgba(0, 0, 0, 0.4);
       border: 1px dashed #00ffea66;
@@ -106,37 +137,36 @@
       opacity: 0;
       transform: translateY(30px);
     }
+
     .product-card.show {
       opacity: 1;
       transform: translateY(0);
     }
+
     .product-card img {
       width: 100%;
       border-radius: 10px;
       margin-bottom: 15px;
       filter: grayscale(40%) contrast(110%);
     }
+
     .product-card h2 {
       color: #00ffea;
       font-size: 1.3em;
       margin: 0;
     }
+
     .price {
       color: #ff00ff;
       font-weight: bold;
       margin: 5px 0;
     }
+
     .desc {
       color: #cccccc;
       font-size: 0.95em;
     }
-    .product-card video {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      filter: grayscale(20%) contrast(110%);
-      box-shadow: 0 0 8px #00ffea33;
-    }
+
     footer {
       text-align: center;
       padding: 30px 20px;
@@ -145,6 +175,7 @@
       position: relative;
       z-index: 1;
     }
+
     .whatsapp {
       display: inline-block;
       margin-bottom: 15px;
@@ -157,6 +188,7 @@
       box-shadow: 0 0 10px #25D366;
       transition: background-color 0.3s;
     }
+
     .whatsapp:hover {
       background-color: #1dbf5f;
     }
@@ -164,10 +196,15 @@
 </head>
 <body>
 
-  <!-- 🔊 AUDIO Musik Tersembunyi -->
-  <audio id="bgMusic" src="naruto.mp3"></audio>
+  <!-- 🎵 Audio -->
+  <audio id="bgMusic" src="naruto.mp3" preload="auto" loop></audio>
 
-  <!-- 🔆 Cahaya Latar -->
+  <!-- 🔊 Tombol Musik Manual -->
+  <div class="music-button" id="musicBtn" onclick="startMusic()">
+    <img src="https://cdn-icons-png.flaticon.com/512/727/727269.png" alt="Play Music" />
+  </div>
+
+  <!-- 🔆 Latar Cahaya -->
   <div class="bg-lights">
     <div class="light" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
     <div class="light" style="top: 30%; left: 80%; animation-delay: 2s;"></div>
@@ -197,30 +234,18 @@
 
   <!-- 🔽 Produk -->
   <section id="produk" class="fade-in" style="overflow: auto; max-height: 600px; padding: 40px; white-space: nowrap; display: flex; gap: 20px; position: relative; z-index: 1;">
-    <!-- Produk kamu tetap sama -->
     <div class="product-card show" style="width: 300px;">
       <img src="https://files.catbox.moe/9absu9.png" />
       <h2>Premium Call Tools</h2>
       <p class="price">Harga? Chat ke wa </p>
       <p class="desc">Spam call/sms/email</p>
     </div>
-    <div class="product-card show" style="width: 300px;">
-      <img src="https://files.catbox.moe/9absu9.png" />
-      <h2>Preview Tampilan Menu</h2>
-      <p class="price">Free Yang jeng</p>
-      <p class="desc">Script Spam Wa Terbaru</p>
-    </div>
-    <div class="product-card show" style="width: 300px;">
-      <img src="https://files.catbox.moe/9absu9.png" />
-      <h2>YouTube Gua</h2>
-      <p class="price"></p>
-      <p class="desc">Silahkan Cek YouTube Gua</p>
-    </div>
+    <!-- Tambahan Produk -->
   </section>
 
-  <!-- 🌐 Sosial -->
+  <!-- 🌐 Sosial Media -->
   <section class="fade-in" style="overflow-x: auto; white-space: nowrap; padding: 30px 20px; text-align: center; position: relative; z-index: 1;">
-    <!-- Link sosial tetap sama -->
+    <!-- Ikon sosial tetap -->
   </section>
 
   <!-- 🟢 Footer -->
@@ -231,7 +256,7 @@
     <p>© 2025 Vindra Ganzz</p>
   </footer>
 
-  <!-- 🔧 JavaScript -->
+  <!-- 🔧 Script -->
   <script>
     const cards = document.querySelectorAll('.product-card');
     const observer = new IntersectionObserver(entries => {
@@ -243,12 +268,25 @@
     }, { threshold: 0.2 });
     cards.forEach(card => observer.observe(card));
 
+    const audio = document.getElementById("bgMusic");
+    const musicBtn = document.getElementById("musicBtn");
+
     function startMusic() {
-      const audio = document.getElementById("bgMusic");
-      if (audio.paused) {
-        audio.play().catch(e => console.log("Autoplay blocked:", e));
-      }
+      audio.play().then(() => {
+        musicBtn.style.display = "none";
+      }).catch(() => {
+        musicBtn.style.display = "block"; // Tampilkan tombol jika gagal autoplay
+      });
     }
+
+    // Tampilkan tombol musik jika autoplay gagal saat load
+    window.addEventListener('load', () => {
+      audio.play().then(() => {
+        musicBtn.style.display = "none";
+      }).catch(() => {
+        musicBtn.style.display = "block";
+      });
+    });
   </script>
 
 </body>
