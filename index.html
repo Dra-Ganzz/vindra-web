@@ -13,11 +13,55 @@
       scroll-behavior: smooth;
       overflow-x: hidden;
     }
-    /* Styles lainnya tidak diubah */
+    /* seluruh CSS kamu tetap... */
+    .bg-lights {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .light {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(0, 255, 255, 0.5);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+      animation: moveLight 10s linear infinite;
+    }
+    @keyframes moveLight {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.6;
+      }
+      50% {
+        transform: translateY(100vh) translateX(30vw);
+        opacity: 0.1;
+      }
+      100% {
+        transform: translateY(0) translateX(-30vw);
+        opacity: 0.6;
+      }
+    }
+    .marquee-container { /* ... */ }
+    .marquee-text { /* ... */ }
+    @keyframes scroll-left { /* ... */ }
+    .fade-in { /* ... */ }
+    @keyframes fadeInUp { /* ... */ }
+    header { /* ... */ }
+    .products { /* ... */ }
+    .product-card { /* ... */ }
+    footer { /* ... */ }
+    .whatsapp { /* ... */ }
   </style>
 </head>
 <body>
-  <!-- 🔆 Cahaya Latar Belakang -->
+
+  <!-- 🔆 Cahaya -->
   <div class="bg-lights">
     <div class="light" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
     <div class="light" style="top: 30%; left: 80%; animation-delay: 2s;"></div>
@@ -26,12 +70,12 @@
     <div class="light" style="top: 90%; left: 10%; animation-delay: 8s;"></div>
   </div>
 
-  <!-- 🔥 Marquee Teks Berjalan -->
+  <!-- 🔥 Marquee -->
   <div class="marquee-container">
     <div class="marquee-text">✨ Selamat Datang di Website Vindra ✨ Selamat Datang di Website Vindra✨</div>
   </div>
 
-  <!-- ✨ Intro Atas -->
+  <!-- ✨ Intro -->
   <section id="intro" style="text-align:center; padding: 100px 20px; position: relative; z-index: 1;">
     <h1 style="font-size: 3em; color: #00fff7; text-shadow: 0 0 10px #00fff7;" class="fade-in">
       Selamat Datang di Vindra Ganzz Web
@@ -64,14 +108,6 @@
       <h2>YouTube Gua</h2>
       <p class="price"></p>
       <p class="desc">Silahkan Cek YouTube Gua</p>
-      <div style="margin-top: 15px;">
-        <iframe width="100%" height="200"
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=0&loop=1&playlist=dQw4w9WgXcQ"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-      </div>
     </div>
   </section>
 
@@ -112,6 +148,23 @@
     <p>© 2025 Vindra Ganzz</p>
   </footer>
 
+  <!-- 🔊 Musik YouTube akan diputar saat halaman diklik -->
+  <script>
+    let musikDimulai = false;
+    document.body.addEventListener('click', function mulaiMusik() {
+      if (!musikDimulai) {
+        musikDimulai = true;
+        const iframe = document.createElement('iframe');
+        iframe.src = "https://www.youtube.com/embed/Gnz4aLqOElA?autoplay=1&loop=1&playlist=Gnz4aLqOElA";
+        iframe.allow = "autoplay";
+        iframe.style.display = "none";
+        iframe.setAttribute("allowfullscreen", "");
+        iframe.setAttribute("frameborder", "0");
+        document.body.appendChild(iframe);
+      }
+    });
+  </script>
+
   <!-- JS Scroll Observer -->
   <script>
     const cards = document.querySelectorAll('.product-card');
@@ -124,5 +177,6 @@
     }, { threshold: 0.2 });
     cards.forEach(card => observer.observe(card));
   </script>
+
 </body>
 </html>
