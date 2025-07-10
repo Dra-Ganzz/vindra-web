@@ -14,7 +14,37 @@
       overflow-x: hidden;
     }
 
-    /* ✨ Efek fade masuk */
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+      background: linear-gradient(90deg, #0f0c29, #302b63, #24243e);
+      border-bottom: 2px dashed #00ffea88;
+      padding: 10px 0;
+    }
+
+    .marquee-text {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scroll-left 20s linear infinite;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(45deg, #ff00c8, #00ffee, #ffeb3b);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 10px #00ffe1, 0 0 20px #ff00f7;
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
     .fade-in {
       opacity: 0;
       transform: scale(0.95);
@@ -137,6 +167,11 @@
 </head>
 <body>
 
+  <!-- 🔥 Marquee Teks Berjalan -->
+  <div class="marquee-container">
+    <div class="marquee-text">✨ Selamat Datang di Web Kami ✨ Selamat Datang di Web Kami ✨</div>
+  </div>
+
   <!-- ✨ Intro Atas -->
   <section id="intro" style="text-align:center; padding: 100px 20px;">
     <h1 style="font-size: 3em; color: #00fff7; text-shadow: 0 0 10px #00fff7;" class="fade-in">
@@ -152,7 +187,7 @@
   </section>
 
   <!-- 🔽 Produk -->
-  <section class="fade-in" style="overflow: auto; max-height: 600px; padding: 40px; white-space: nowrap; display: flex; gap: 20px;">
+  <section id="produk" class="fade-in" style="overflow: auto; max-height: 600px; padding: 40px; white-space: nowrap; display: flex; gap: 20px;">
     <div class="product-card show" style="width: 300px;">
       <img src="https://files.catbox.moe/2fseci.png" />
       <h2>Premium Call Tools</h2>
