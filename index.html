@@ -4,6 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vindra Ganzz</title>
+
+  <script>
+    // 🚫 Proteksi Anti-Sniff dan Headless
+    const ua = navigator.userAgent.toLowerCase();
+    const blockedAgents = ["curl", "wget", "httpie", "python", "axios", "fetch", "node", "headless", "phantom"];
+    const isHeadless = navigator.webdriver || !navigator.plugins.length || !navigator.languages;
+
+    for (let agent of blockedAgents) {
+      if (ua.includes(agent) || isHeadless) {
+        document.documentElement.innerHTML = `
+          <div style="padding: 100px; text-align: center; font-size: 24px; color: red; background: black;">
+            🔴 Akses Diblokir<br />Deteksi bot, terminal, atau sniffing tools
+          </div>`;
+        throw new Error("Blocked user-agent: " + agent);
+      }
+    }
+  </script>
+
   <style>
     body {
       margin: 0;
@@ -154,15 +172,6 @@
     .whatsapp:hover {
       background-color: #1dbf5f;
     }
-
-    @keyframes flicker {
-      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-        opacity: 1;
-      }
-      20%, 22%, 24%, 55% {
-        opacity: 0;
-      }
-    }
   </style>
 </head>
 <body>
@@ -174,9 +183,7 @@
 
   <!-- ✨ Intro Atas -->
   <section id="intro" style="text-align:center; padding: 100px 20px;">
-    <h1 style="font-size: 3em; color: #00fff7; text-shadow: 0 0 10px #00fff7;" class="fade-in">
-      Selamat Datang di Vindra Ganzz Web
-    </h1>
+    <h1 class="fade-in">Selamat Datang di Vindra Ganzz Web</h1>
     <p style="color: #ccc; margin-top: 10px;" class="fade-in">
       Script premium, tools brutal, tampilan sangar
     </p>
@@ -189,52 +196,32 @@
   <!-- 🔽 Produk -->
   <section id="produk" class="fade-in" style="overflow: auto; max-height: 600px; padding: 40px; white-space: nowrap; display: flex; gap: 20px;">
     <div class="product-card show" style="width: 300px;">
-      <img src="https://files.catbox.moe/9absu9.png" />
+      <img src="https://files.catbox.moe/2fseci.png" />
       <h2>Premium Call Tools</h2>
       <p class="price">Rp 50.000 / bulan</p>
-      <p class="desc">Spam call/sms/email</p>
+      <p class="desc">Spam call/sms/email otomatis dengan tools by Vindra Ganzz.</p>
     </div>
     <div class="product-card show" style="width: 300px;">
-      <img src="https://files.catbox.moe/9absu9.png" />
+      <img src="Screenshot_20250710-093958.png" />
       <h2>Preview Tampilan Menu</h2>
       <p class="price">User Premium Aktif</p>
-      <p class="desc">Tampilan utama Premium Tools</p>
+      <p class="desc">Tampilan utama Premium Tools dengan ID dan fitur menu lengkap.</p>
     </div>
     <div class="product-card show" style="width: 300px;">
-      <img src="https://files.catbox.moe/9absu9.png" />
+      <img src="Screenshot_20250710-094719.png" />
       <h2>Harga & Paket Spam</h2>
       <p class="price">Rp 5.000 - 500.000</p>
-      <p class="desc">List harga berdasarkan</p>
+      <p class="desc">List harga berdasarkan lama aktif (2 hari - permanent).</p>
     </div>
   </section>
 
   <!-- 🌐 Sosial Media -->
   <section class="fade-in" style="overflow-x: auto; white-space: nowrap; padding: 30px 20px; text-align: center;">
-    <div style="display: inline-block; margin: 0 15px;">
-      <a href="https://wa.me/18737000033" target="_blank" title="WhatsApp">
-        <img src="https://cdn-icons-png.flaticon.com/128/733/733585.png" width="50" style="filter: drop-shadow(0 0 5px #25D366);" />
-      </a>
-    </div>
-    <div style="display: inline-block; margin: 0 15px;">
-      <a href="https://youtube.com/@vindraganzz" target="_blank" title="YouTube">
-        <img src="https://cdn-icons-png.flaticon.com/128/1384/1384060.png" width="50" style="filter: drop-shadow(0 0 5px red);" />
-      </a>
-    </div>
-    <div style="display: inline-block; margin: 0 15px;">
-      <a href="https://tiktok.com/@vindraganzz" target="_blank" title="TikTok">
-        <img src="https://cdn-icons-png.flaticon.com/128/3046/3046122.png" width="50" style="filter: drop-shadow(0 0 5px white);" />
-      </a>
-    </div>
-    <div style="display: inline-block; margin: 0 15px;">
-      <a href="https://instagram.com/vindraganzz" target="_blank" title="Instagram">
-        <img src="https://cdn-icons-png.flaticon.com/128/1384/1384063.png" width="50" style="filter: drop-shadow(0 0 5px #d62976);" />
-      </a>
-    </div>
-    <div style="display: inline-block; margin: 0 15px;">
-      <a href="https://facebook.com/vindraganzz" target="_blank" title="Facebook">
-        <img src="https://cdn-icons-png.flaticon.com/128/1384/1384053.png" width="50" style="filter: drop-shadow(0 0 5px #3b5998);" />
-      </a>
-    </div>
+    <a href="https://wa.me/18737000033" target="_blank"><img src="https://cdn-icons-png.flaticon.com/128/733/733585.png" width="50" style="margin: 10px; filter: drop-shadow(0 0 5px #25D366);" /></a>
+    <a href="https://youtube.com/@vindraganzz" target="_blank"><img src="https://cdn-icons-png.flaticon.com/128/1384/1384060.png" width="50" style="margin: 10px; filter: drop-shadow(0 0 5px red);" /></a>
+    <a href="https://tiktok.com/@vindraganzz" target="_blank"><img src="https://cdn-icons-png.flaticon.com/128/3046/3046122.png" width="50" style="margin: 10px; filter: drop-shadow(0 0 5px white);" /></a>
+    <a href="https://instagram.com/vindraganzz" target="_blank"><img src="https://cdn-icons-png.flaticon.com/128/1384/1384063.png" width="50" style="margin: 10px; filter: drop-shadow(0 0 5px #d62976);" /></a>
+    <a href="https://facebook.com/vindraganzz" target="_blank"><img src="https://cdn-icons-png.flaticon.com/128/1384/1384053.png" width="50" style="margin: 10px; filter: drop-shadow(0 0 5px #3b5998);" /></a>
   </section>
 
   <!-- 🟢 Footer -->
@@ -245,7 +232,7 @@
     <p>© 2025 Vindra Ganzz</p>
   </footer>
 
-  <!-- JS Scroll Observer -->
+  <!-- Scroll Observer -->
   <script>
     const cards = document.querySelectorAll('.product-card');
     const observer = new IntersectionObserver(entries => {
@@ -257,6 +244,5 @@
     }, { threshold: 0.2 });
     cards.forEach(card => observer.observe(card));
   </script>
-
 </body>
 </html>
